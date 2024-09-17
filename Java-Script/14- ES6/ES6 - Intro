@@ -1,0 +1,332 @@
+//New Features in ES6
+
+//https://www.w3schools.com/js/js_es6.asp#mark_includes
+//-----------------------------------------------------
+1.// The let keyword :
+    var x = 10;
+// Here x is 10
+{
+  let x = 2;
+  // Here x is 2
+}
+// Here x is 10
+
+//-----------------------------------------------------
+
+2.// The const keyword :
+
+    var x = 10;
+// Here x is 10
+{
+  const x = 2;
+  // Here x is 2
+}
+// Here x is 10
+
+//-----------------------------------------------------
+
+3.// 
+
+
+ES5
+var x = function(x, y) {
+    return x * y;
+ }
+ 
+ES6
+const x = (x, y) => x * y;
+
+//-----------------------------------------------------
+
+4.// The ... Operator[spread operator]
+
+const q1 = ["Jan", "Feb", "Mar"];
+const q2 = ["Apr", "May", "Jun"];
+const q3 = ["Jul", "Aug", "Sep"];
+const q4 = ["Oct", "Nov", "May"];
+
+const year = [...q1, ...q2, ...q3, ...q4];
+
+//-----------------------------------------------------
+
+5.// For/of
+
+//Looping over an Array
+var a = ["John Doe","hi","kk","doc","ttr"]
+for(let x of a)
+{
+    console.log(x);
+}
+// Looping over a String
+var a = "John Doe"
+for(let x of a)
+{
+    console.log(x);
+}
+
+//-----------------------------------------------------
+
+6.// Map Objects
+
+var a = ["a", "b", [1, 3]]
+console.log(a[2].length);
+a.map((val, indx, array) => {
+    console.log(indx);
+    console.log(array);
+    console.log(val);
+    if (val.length > 1)
+        console.log(val);
+})
+
+//-----------------------------------------------------
+
+7.// Set Objects
+
+//https://www.w3schools.com/js/js_object_sets.asp
+const letters = new Set(["a","b","c"]);
+
+letters.add("e")
+letters.add("f")
+letters.add("g")
+
+console.log(letters.size);
+console.log(letters);
+
+//-----------------------------------------------------
+
+8.// Classes
+
+const myCar1 = new Car("Ford", 2014);
+const myCar2 = new Car("Audi", 2019);
+
+//-----------------------------------------------------
+
+9.// Promises
+
+const myPromise = new Promise(function(myResolve, myReject) {
+    // "Producing Code" (May take some time)
+    
+      myResolve(); // when successful
+      myReject();  // when error
+    });
+    
+    // "Consuming Code" (Must wait for a fulfilled Promise).
+    myPromise.then(
+      function(value) { /* code if successful */ },
+      function(error) { /* code if some error */ }
+    );
+
+//-----------------------------------------------------
+
+10.// Symbol
+
+const person = {
+    firstName: "John",
+    lastName: "Doe",
+    age: 50,
+    eyeColor: "blue"
+  };
+  
+  let id = Symbol('#');
+  person[id] = 140353;
+  console.log(person);
+
+//-----------------------------------------------------------------
+
+11.// Default Parameters
+
+function myFunction(x, y = 10) {
+    // y is 10 if not passed or undefined
+    return x + y;
+  }
+  myFunction(5); // will return 15
+
+//------------------------------------------------------------------
+
+12.// Function Rest Parameter
+
+//https://youtu.be/Vh1_GUKex0w?si=3NbSxuC6HFoVK-rV
+let count = 0
+function add(...array)
+{
+console.log(array);
+for(let i=0;i<array.length;i++)
+{
+    count = count+array[i]
+}
+console.log(count);
+}
+//input = [1,2,3,4]
+add(4,3,7,8,50,21,1) // give unlimited values
+
+//------------------------------------------------------------------
+
+13.// String.includes()
+
+let a = "hie hello iam naveen"
+let b =a.includes("hie")
+console.log(b);
+
+//------------------------------------------------------------------
+
+14.// String.startsWith()
+
+let c = "hello hi wellcome"
+let d = c.startsWith("hello")
+console.log(d);
+
+//------------------------------------------------------------------
+
+15.// String.endsWith()
+
+let e = "f a string ends with"
+let f = e.endsWith("with")
+console.log(f);
+
+//------------------------------------------------------------------
+
+16.// Array.from()
+
+let name = ["naveen","ponarasu","samy","bhai","gg"]
+console.log(Array.from(name)); 
+
+//------------------------------------------------------------------
+17.// Array keys()
+
+let names = ["naveen","ponarasu","samy","bhai","gg"]
+let keys = names.keys()
+for(let x of keys)
+{
+    console.log(x);   
+}
+
+//------------------------------------------------------------------
+18.// Array find()
+
+let cart =[{id:1,item:"phone",cost:10000},{id:2,item:"water heater",cost:15000},{id:3,item:"laptop",cost:50000}]
+let price = cart.find((cartItems)=>
+{
+    return cartItems.cost>20000
+})
+console.log(price);
+
+
+//------------------------------------------------------------------
+19.// Array findIndex()
+
+let cart1 =[{id:1,item:"phone",cost:10000},{id:2,item:"water heater",cost:15000},{id:3,item:"laptop",cost:50000}]
+let price2 = cart.findIndex((cartItems)=>
+{
+    return cartItems.cost>20000
+})
+console.log(price2);
+
+
+//------------------------------------------------------------------
+20.// New Math Methods
+
+let x = 3.56
+let y = 4
+let z = 8
+//x = Math.round(x)
+//x = Math.floor(x)
+//x = Math.ceil(x)
+//x = Math.pow(x,2)
+//x=Math.sqrt(x)
+//x=Math.abs(x)  
+//  let maxi = Math.max(x,y,z)
+//  console.log(maxi);
+//  let mini = Math.min(x,y,z)
+//  console.log(mini);
+//console.log(x);
+
+
+//  destructring //  // 
+//------------------------------------------------------------------
+21.// aarray destructring 
+let a=1;
+let b1=2;
+// let temp = b
+//  b=a
+//  a=temp
+//  console.log(b);
+//  console.log(a);
+
+ [a,b]=[b,a]
+ console.log(b);
+//https://youtu.be/k9Pn8PF8ymE?si=ErNCTRP3P6QtbB0Q
+
+let names0 = ['hi',undefined,'hey',"wellcome","hiii"]
+let [names1,names2="default name",...names3] = names0
+console.log(names1);
+console.log(names2);
+console.log(names3);
+// eg::
+
+function operator(a,b)
+{
+   let add = a+b
+   let sub = a-b
+   let mul = a*b
+   let div = a/b
+   return[add,sub,mul,div]
+   
+}
+
+const[addtion,subraction,multiply,divisionn]= operator(4,6)
+
+console.log(addtion);
+console.log(subraction);
+console.log(multiply);
+console.log(division);
+
+//object destructring
+
+
+let obj9 = {names:"navy", age:25,gender : "male"} 
+console.log(obj.gender);
+
+const {nameso,age,gender}=obj
+console.log(names);
+
+let obj = {names:"navy", age:25,gender : "male"} 
+
+ function sum({names,age,gender})
+ {
+    return [names,age,gender]
+ }
+ 
+ let [n,a,g]=sum(obj)
+ console.log(n);
+ let sum = {key1:4,key2:6,key3:9,key4:5}
+ function all({key1,key2,key3,key4})
+ {
+     let add =  key1+key2+key4
+     let sub = key3-key1
+     let mul = key4*key2
+     let div = key4/key1
+     return [add,sub,mul,div]
+ }
+ const[addition,subtraction,multiplycation,division] = all(sum)
+ console.log(addition);
+ console.log(subtraction);
+ console.log(division);
+ 
+
+
+//------------------------------------------------------------------
+22.// default parameter
+
+function sum(a,b=5)
+{
+    console.log(a+b);
+}
+sum(10,6)
+
+
+//------------------------------------------------------------------
+23.// template literals
+
+let add = "naveen"
+console.log(`my name is ${add}`);
+
